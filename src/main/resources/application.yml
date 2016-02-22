@@ -2,9 +2,13 @@ server:
   port: 8761
 
 eureka:
+  server:
+    enableSelfPreservation: false
   instance:
     hostname: localhost
     leaseRenewalInternalInSeconds: 1
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
   client:
     registerWithEureka: false
     fetchRegistry: false
